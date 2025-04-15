@@ -1,6 +1,13 @@
 import { useState } from 'react'
 import './App.css'
 
+// Define the type for the idea object
+interface IdeaType {
+  name: string;
+  tagline: string;
+  summary: string;
+}
+
 function App() {
   const [preferences, setPreferences] = useState({
     mrrPotential: 'Medium',
@@ -12,7 +19,8 @@ function App() {
     sector: ''
   });
   
-  const [idea, setIdea] = useState(null);
+  // Add the proper type to the idea state
+  const [idea, setIdea] = useState<IdeaType | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleGenerate = async () => {
